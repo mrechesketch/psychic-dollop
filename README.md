@@ -1,2 +1,2 @@
 # psychic-dollop
-fractal snowflake in javascript
+fractal snowflake in JavaScript
