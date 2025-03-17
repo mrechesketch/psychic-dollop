@@ -18,11 +18,11 @@ function draw() {
     const size = canvas.width * 0.75;
     const height = size * Math.sqrt(3) / 2;
     const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2 - height / 3;
+    const centerY = canvas.height / 2;
 
-    const p1 = { x: centerX - size / 2, y: centerY + height };
-    const p2 = { x: centerX + size / 2, y: centerY + height };
-    const p3 = { x: centerX, y: centerY };
+    const p1 = { x: centerX - size / 2, y: centerY + height / 3 };
+    const p2 = { x: centerX + size / 2, y: centerY + height / 3 };
+    const p3 = { x: centerX, y: centerY - (2 * height) / 3 };
 
     ctx.beginPath();
     koch(p1, p2, level);
