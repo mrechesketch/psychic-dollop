@@ -3,18 +3,27 @@ const ctx = canvas.getContext('2d');
 const levelDisplay = document.getElementById('level');
 let level = 0;
 
-// Initial triangle points
-const size = 400;
-const height = size * Math.sqrt(3) / 2;
-const centerX = canvas.width / 2;
-const centerY = canvas.height / 2 - height / 3;
+// Set canvas size based on window size
+function resizeCanvas() {
+    const side = Math.min(window.innerWidth * 0.9, 600); // cap at 600px
+    canvas.width = side;
+    canvas.height = side;
+    draw();
+}
 
-const p1 = { x: centerX - size / 2, y: centerY + height };
-const p2 = { x: centerX + size / 2, y: centerY + height };
-const p3 = { x: centerX, y: centerY };
-
+// Draw Koch Snowflake centered in the canvas
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const size = canvas.width * 0.75;
+    const height = size * Math.sqrt(3) / 2;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2 - height / 3;
+
+    const p1 = { x: centerX - size / 2, y: centerY + height };
+    const p2 = { x: centerX + size / 2, y: centerY + height };
+    const p3 = { x: centerX, y: centerY };
+
     ctx.beginPath();
     koch(p1, p2, level);
     koch(p2, p3, level);
@@ -45,8 +54,9 @@ function koch(pA, pB, depth) {
     }
 }
 
+// Handle level controls
 document.getElementById('increase').addEventListener('click', () => {
-    if (level < 6) { // limit depth
+    if (level < 6) {
         level++;
         levelDisplay.textContent = `Level: ${level}`;
         draw();
@@ -61,5 +71,8 @@ document.getElementById('decrease').addEventListener('click', () => {
     }
 });
 
-// Initial draw
-draw();
+// Redraw on window resize
+window.addEventListener('resize', resizeCanvas);
+
+// Initial setup
+resizeCanvas();
