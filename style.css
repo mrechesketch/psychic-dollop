@@ -57,6 +57,7 @@ button {
     cursor: pointer;
     background-color: #2196F3;
     color: white;
+    touch-action: manipulation; /* Prevent accidental zoom on double tap */
 }
 
 button:hover {
