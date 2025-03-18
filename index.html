@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koch Fractal Snowflakes</title>
+    <title>Fractal Visualizer</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <h1>Koch Fractal Snowflakes</h1>
-    </header>
-    <main>
-        <canvas id="fractalCanvas" width="600" height="600"></canvas>
-        <div class="controls">
-            <button id="decrease">-</button>
-            <span id="level">Level: 0</span>
-            <button id="increase">+</button>
+    <div id="top-controls">
+        <select id="fractalSelect">
+            <option value="koch">Koch Snowflake</option>
+            <option value="sierpinski">Sierpiński Triangle</option>
+        </select>
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="bottom-controls">
+        <div id="level-indicator">Level: 0</div>
+        <div id="button-group">
+            <button id="decrease">- Level</button>
+            <button id="increase">+ Level</button>
         </div>
-    </main>
-    <footer>
-        <p>Created by Alex Echevarria & ChatGPT | View on <a href="https://github.com/mrechesketch/psychic-dollop" target="_blank">GitHub</a></p>
-    </footer>
+        <button id="toggleFill">Toggle Fill: OFF</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
