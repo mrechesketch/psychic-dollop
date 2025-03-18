@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 let level = 0;
+let maxLevel = 6;
 let fillMode = false;
 let currentFractal = 'koch';
 
@@ -28,7 +29,7 @@ document.getElementById('toggleFill').addEventListener('click', () => {
 });
 
 document.getElementById('increase').addEventListener('click', () => {
-    level++;
+    if ( level <= maxLevel) level++;
     updateLevelIndicator();
     draw();
 });
